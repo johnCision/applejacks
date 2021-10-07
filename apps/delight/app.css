@@ -1,0 +1,64 @@
+.brandC {
+	--theme-primary-background: red;
+	--theme-primary-text: red;
+
+	--theme-brand-color: rgb(76, 167, 197);
+}
+
+@media (prefers-color-scheme: light) {
+	.brandC {
+		--theme-primary-background: rgb(182, 174, 157);
+		--theme-primary-text: black;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.brandC {
+		--theme-primary-background: rgb(0, 80, 146);
+		--theme-primary-text: white;
+	}
+}
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--theme-primary-background, red);
+	color: var(--theme-primary-text, red);
+
+	display: block;
+	min-height: 100vh;
+	width: 100vw;
+
+	font-size: larger;
+}
+
+c-application-bar {
+	display: flex;
+	background-color: var(--theme-brand-color, red);
+}
+
+#featureNavList {
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#featureNavList > li {
+	display: inline-block;
+	margin: 1em;
+}
+
+c-application > *[slot="pages"] {
+	visibility: hidden;
+}
+
+c-application > *[slot="pages"][active="true"] {
+	visibility: visible;
+}

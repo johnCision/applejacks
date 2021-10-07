@@ -1,0 +1,14 @@
+{
+	"name": "Demo",
+	"short_name": "Demo",
+	"display": "standalone",
+
+	"start_url": "apps/delight/app.html",
+
+	"background_color": "red",
+	"theme_color": "red",
+
+	"icons": [
+		{ "src": "app.svg", "size": "512x512", "type": "image/svg"}
+	]
+}

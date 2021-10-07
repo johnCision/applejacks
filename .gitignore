@@ -1,0 +1,13 @@
+
+logs
+*.log
+npm-debug.log*
+
+lib-cov
+coverage
+.nyc_output
+
+node_modules/
+
+.env
+.DS_Store

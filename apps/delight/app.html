@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+
+		<title>Demo</title>
+		<meta name="description" content="Demo">
+
+		<link rel="manifest" href="manifest.json"></link>
+		<link rel="stylesheet" type="text/css" href="../../theme/themes.css"></link>
+		<link rel="stylesheet" type="text/css" href="app.css"></link>
+
+		<script type="module" src="app.js"></script>
+
+		<template id="app-template">
+			<style>
+				#application-frame {
+					display: grid;
+					/* grid-gap: 10px; */
+					/* grid-template-columns: 1fr; */
+					grid-template-rows: auto 1fr;
+					grid-template-areas:
+							"header"
+							"content";
+					width: 100%;
+					height: 100%;
+				}
+				header {
+					grid-area: header;
+				}
+				main {
+					grid-area: content;
+					display: block;
+					overflow-y: scroll;
+				}
+			</style>
+			<div id="application-frame">
+				<header>
+					<slot name="header" id="user"><span>Not Loaded yet</span></slot>
+				</header>
+				<main>
+					<slot name="pages"><span>Not Loaded yet</span></slot>
+				</main>
+			</div>
+		</template>
+
+		<template id="application-bar-template">
+			<style>
+			</style>
+			<slot name="menu"></slot>
+			<slot name="navigation"></slot>
+			<slot name="secondaryMenu"></slot>
+		</template>
+
+
+		<template id="user-template">
+			<style>
+				#logout { visibility: hidden; }
+				#login { visibility: visible; }
+
+				.active #logout { visibility: visible; }
+				.active #login { visibility: hidden; }
+			</style>
+			<div id="control">
+				<slot id="logout" name="logout"></slot>
+				<slot id="login"  name="login"></slot>
+			</div>
+		</template>
+
+	</head>
+	<body class="brandC anon">
+		<c-application href="app.v0.json">
+			<c-application-bar slot="header">
+				<c-button id="burgerMenuButton" slot="menu">🍔</c-button>
+
+				<ul id="featureNavList" slot="navigation">
+					<li>Feature A</li>
+					<li>Feature B</li>
+				</ul>
+
+				<c-user-account slot="secondaryMenu" name="">
+					<button id="logoutButton" slot="logout">Exit</button>
+					<button id="loginButton" kind="text" slot="login">Login</button>
+				</c-user-account>
+			</c-application-bar>
+
+			<c-panel slot="pannel">
+			</c-panel>
+
+			<content slot="pages" id="anon">
+				Identify yourself
+			</content>
+
+			<content slot="pages" id="new_user">
+				Welcome, start the questions...
+			</content>
+
+			<content slot="pages" id="questions">
+				now is the time for all good men to come to the aid of thier fellow man
+			</content>
+
+			<content slot="pages" id="home">
+				Home at last
+			</content>
+		</c-application>
+	</body>
+</html>
