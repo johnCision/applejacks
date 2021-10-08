@@ -69,6 +69,12 @@
 			</div>
 		</template>
 
+		<template id="face-template">
+			<style>
+			</style>
+				<img src="" alt="">
+		</template>
+
 	</head>
 	<body class="brandC anon">
 		<c-application href="app.v0.json">
@@ -81,8 +87,10 @@
 				</ul>
 
 				<c-user-account slot="secondaryMenu" name="">
-					<button id="logoutButton" slot="logout">Exit</button>
-					<button id="loginButton" kind="text" slot="login">Login</button>
+					<c-button id="logoutButton" slot="logout" type="icon">
+						<c-face id="userFace" avatar="" name="" size="medium"></c-face>
+					</c-button>
+					<a href="https://github.com/login/oauth/authorize?scope=user&client_id=86bb02292e0e29cc1ae6&state=37" id="loginButton" kind="text" slot="login">Login</a>
 				</c-user-account>
 			</c-application-bar>
 
@@ -95,6 +103,11 @@
 
 			<content slot="pages" id="new_user">
 				Welcome, start the questions...
+				<form target="">
+					<input type="text"></form>
+
+					<input type="submit"></input>
+				</form>
 			</content>
 
 			<content slot="pages" id="questions">

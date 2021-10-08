@@ -46,5 +46,5 @@ export async function fake_fetch(urn) {
 	const key = urn.split('?')[0]
 	const result = DB[key]
 	console.log('fake_fetch', key, result)
-	return new Promise((resolve, reject) => setTimeout(() => resolve(result), 1000))
+	return new Promise((resolve, reject) => setTimeout(() => resolve(result), 10))
 }

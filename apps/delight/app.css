@@ -55,10 +55,41 @@ c-application-bar {
 	margin: 1em;
 }
 
+c-application {
+	/* display: grid; */
+	/* grid-gap: 10px; */
+	/* grid-template-columns: 1fr; */
+	/* grid-template-rows: auto 1fr;
+	grid-template-areas:
+			"header"
+			"content"; */
+	/* width: 100%;
+	height: 100%; */
+}
+
+/* header {
+	grid-area: header;
+}
+main {
+	grid-area: content;
+	display: block;
+	overflow-y: scroll;
+} */
+
 c-application > *[slot="pages"] {
 	visibility: hidden;
 }
 
 c-application > *[slot="pages"][active="true"] {
 	visibility: visible;
+}
+
+c-face {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+c-face[size="medium"] {
+	width: 64px;
+	height: 64px;
 }

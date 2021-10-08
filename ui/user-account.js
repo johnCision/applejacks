@@ -1,3 +1,5 @@
+const HTML5_NS = ''
+
 //
 export class UserAccount extends HTMLElement {
 	constructor() {
@@ -9,14 +11,17 @@ export class UserAccount extends HTMLElement {
 		this._shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return ['name'] }
+	static get observedAttributes() { return ['name', 'avatar'] }
 
 	connectedCallback() { } // appended into a document
 	disconnectedCallback() { }
 	adoptedCallback() { }
 	attributeChangedCallback(name, oldValue, newValue) {
-		if (name !== 'name') { return }
+		if (name === 'name') { UserAccount.updateName(this); return }
+	}
 
+	static async updateName(accountElem) {
+		const newValue = accountElem.getAttributeNS(HTML5_NS, 'name')
 		//console.log('user change', { name, oldValue, newValue })
 
 		const activeUser = newValue !== ''
@@ -28,7 +33,7 @@ export class UserAccount extends HTMLElement {
 		//userNameElem.innerText = newValue
 
 		// update ui state
-		const hostClassList = this._shadowRoot.querySelector('#control').classList
+		const hostClassList = accountElem._shadowRoot.querySelector('#control').classList
 		if (activeUser && !hostClassList.contains('active')) { hostClassList.add('active') }
 		if (!activeUser && hostClassList.contains('active')) { hostClassList.remove('active') }
 	}

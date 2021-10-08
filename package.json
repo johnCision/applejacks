@@ -1,0 +1,19 @@
+{
+  "name": "applejacks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./service/ux.js",
+  "type": "module",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnCision/applejacks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnCision/applejacks/issues"
+  },
+  "homepage": "https://github.com/johnCision/applejacks#readme"
+}
