@@ -21,7 +21,7 @@ export class UserAccount extends HTMLElement {
 	}
 
 	static async updateName(accountElem) {
-		const newValue = accountElem.getAttributeNS(HTML5_NS, 'name')
+		const newValue = accountElem.getAttribute('name')
 		//console.log('user change', { name, oldValue, newValue })
 
 		const activeUser = newValue !== ''

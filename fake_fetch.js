@@ -8,7 +8,7 @@ const DB = {
 	},
 	'app.v1.json': {
 		name: 'applejacks',
-		state: 'new_user',
+		state: 'welcome_user',
 
 		actions: [
 			{ rel: 'start', href: 'app.v2.json' },

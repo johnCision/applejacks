@@ -5,6 +5,8 @@
   "main": "./service/ux.js",
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
+    "run:auth": "node service/auth.js"
   },
   "repository": {
     "type": "git",
