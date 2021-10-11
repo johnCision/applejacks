@@ -2,11 +2,14 @@
   "name": "applejacks",
   "version": "1.0.0",
   "description": "",
-  "main": "./service/ux.js",
+  "main": "./",
   "type": "module",
+  "exports": {
+    "import": "./"
+  },
   "scripts": {
     "lint": "eslint .",
-    "run:auth": "node service/auth.js"
+    "ux": "node service/ux.js"
   },
   "repository": {
     "type": "git",

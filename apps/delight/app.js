@@ -4,14 +4,16 @@ import { UserAccount } from '../../ui/user-account.js'
 import { ApplicationBar } from '../../ui/application-bar.js'
 import { Face } from '../../ui/face.js'
 import { Pager } from '../../ui/pager.js'
+import { Page } from '../../ui/page.js'
 import { Button } from '../../ui/button.js'
 import { Icon } from '../../ui/icon.js'
 import { Label } from '../../ui/label.js'
 
-
-import { fake_auth } from '../../fake_auth.js'
-
 const HTML5_NS = 'http://www.w3.org/1999/xhtml'
+
+function handleAccountButton(event) {
+	console.log('account button pressed')
+}
 
 async function fake_auth_token_proxy(code) {
 	const url = new URL('https://localhost:8080/github_token')
@@ -36,6 +38,20 @@ function onContentLoadedSync() {
 }
 async function onContentLoaded() {
 	console.log('Here we go')
+
+	//
+	customElements.define('c-application', App)
+	customElements.define('c-application-frame', ApplicationFrame)
+	customElements.define('c-application-bar', ApplicationBar)
+	customElements.define('c-user-account', UserAccount)
+	customElements.define('c-face', Face)
+	customElements.define('c-pager', Pager)
+	customElements.define('c-page', Page)
+	customElements.define('c-button', Button)
+	customElements.define('c-icon', Icon)
+	customElements.define('c-label', Label)
+
+	//
 	const serviceWorkerRegistration = await navigator.serviceWorker.register(
 		'service-worker.js',
 		{ type: 'module', scope: './' })
@@ -44,6 +60,7 @@ async function onContentLoaded() {
 
 	})
 
+	//
 	const url = new URL(window.location.href)
 	const sp = new URLSearchParams(url.search)
 	if(sp.has('code')) {
@@ -58,19 +75,8 @@ async function onContentLoaded() {
 	}
 
 	//
-	customElements.define('c-application', App)
-	customElements.define('c-application-frame', ApplicationFrame)
-	customElements.define('c-application-bar', ApplicationBar)
-	customElements.define('c-user-account', UserAccount)
-	customElements.define('c-face', Face)
-	customElements.define('c-pager', Pager)
-	customElements.define('c-button', Button)
-	customElements.define('c-icon', Icon)
-	customElements.define('c-label', Label)
-
-	//
-	//const loginButtonElem = document.querySelector('#loginButton')
-	//loginButtonElem.addEventListener('click', handleLoginButton)
+	const loginButtonElem = document.querySelector('#accountButton')
+	loginButtonElem.addEventListener('click', handleAccountButton)
 
 	// another way
 	//

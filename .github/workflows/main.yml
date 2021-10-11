@@ -1,7 +1,5 @@
 name: CI
-on:
-  pull_request:
-  workflow_dispatch:
+on: [ push, pull_request, workflow_dispatch ]
 
 jobs:
   Build:
@@ -9,3 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm i
+      - run: npm run test:service --if-present
+      - run: npm run lint:web --if-present
+      - run: npm run lint:service --if-present
+      - run: npm run coverage:web --if-present
+      - run: npm run coverage:server --if-present

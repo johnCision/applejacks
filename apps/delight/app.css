@@ -40,6 +40,37 @@ body {
 	font-size: larger;
 }
 
+c-application-frame {
+	display: grid;
+	/* grid-gap: 10px; */
+	/* grid-template-columns: 1fr; */
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+			"header"
+			"content";
+	width: 100%;
+	height: 100%;
+}
+c-application-frame::part(header) {
+	grid-area: header;
+	border: 1px solid red;
+}
+c-application-frame::part(main) {
+	grid-area: content;
+	display: block;
+	overflow-y: scroll;
+	border: 1px solid red;
+}
+
+#statePager > c-page {
+	visibility: hidden;
+}
+
+#statePager > c-page {
+	visibility: visible;
+}
+
+
 c-application-bar {
 	display: flex;
 	background-color: var(--theme-brand-color, red);
@@ -75,6 +106,12 @@ c-application-bar {
   	align-items: center;
 
 	background-color: var(--theme-button-body-backgrond, red);
+}
+
+
+#logoutButton {
+	overflow: hidden;
+
 }
 
 c-face {

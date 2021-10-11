@@ -7,8 +7,8 @@ export class Pager extends HTMLElement {
 
 		const template = document.getElementById('pager-template')
 		const content = template.content
-		this._shadowDom = this.attachShadow({ mode: 'open' })
-		this._shadowDom.appendChild(content.cloneNode(true))
+		const shadow = this.attachShadow({ mode: 'open' })
+		shadow.appendChild(content.cloneNode(true))
 	}
 
 	static get observedAttributes() { return ['page'] }
@@ -20,6 +20,15 @@ export class Pager extends HTMLElement {
 
 		if (name != 'page') { return }
 
-		//const activeElem = this._shadowDom.querySelector('')
+		const lastActiveElem = this.querySelector('*[active="true"]')
+		console.log({ lastActiveElem })
+		if(lastActiveElem) { lastActiveElem.removeAttributeNS('', 'active') }
+
+		const targetActiveElement = this.querySelector('*[name="' + newValue + '"]')
+		console.log({ targetActiveElement })
+		targetActiveElement.setAttributeNS('', 'active', 'true')
+
+
+
 	}
 }

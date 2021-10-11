@@ -11,8 +11,8 @@ export class App extends HTMLElement {
 
 		const template = document.getElementById('app-template')
 		const content = template.content
-		this._shadowRoot = this.attachShadow({ mode: 'open' })
-		this._shadowRoot.appendChild(content.cloneNode(true))
+		const shadowRoot = this.attachShadow({ mode: 'open' })
+		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
 	static get observedAttributes() { return [
