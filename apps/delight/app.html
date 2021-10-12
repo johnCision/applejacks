@@ -19,14 +19,15 @@
 		</template>
 
 		<template id="application-frame-template">
-			<div id="application-frame">
-				<header part="header">
-					<slot name="header" id="user"><span>Not Loaded yet</span></slot>
-				</header>
-				<main part="main">
-					<slot name="main"><span>Not Loaded yet</span></slot>
-				</main>
-			</div>
+			<header part="header">
+				<slot name="header"><span>Not Loaded yet</span></slot>
+			</header>
+			<main part="main">
+				<slot name="main"><span>Here</span></slot>
+			</main>
+			<aside part="aside">
+				<slot name="aside"></slot>
+			</aside>
 		</template>
 
 		<template id="application-bar-template">
@@ -39,10 +40,6 @@
 			<slot></slot>
 		</template>
 
-		<template id="face-template">
-				<img src="" alt="">
-		</template>
-
 		<template id="pager-template">
 			<slot></slot>
 		</template>
@@ -52,7 +49,9 @@
 		</template>
 
 		<template id="icon-template">
-			<img src="" alt />
+			<div part="image">&nbsp;</div>
+			<!-- <img id="anonAvatar" src="../../icons/user.svg" alt="Anonymouse User Avatar"  height="16px" width="16px"/>
+			<img id="" src="../../icons/.svg" alt="" /> -->
 		</template>
 
 		<template id="label-template">
@@ -61,16 +60,22 @@
 
 		<template id="button-template">
 			<button part="button">
-				<c-icon id="icon" type="" name=""></c-icon>
-				<c-label id="label"><slot></slot></c-label>
+				<c-icon id="icon" name="" part="button-icon"></c-icon>
+				<c-label id="label" part="button-label"></c-label>
+				<slot></slot>
 			</button>
 		</template>
 
+		<template id="face-template">
+			<img id="avatar" part="avatar" src="" alt="">
+			<c-icon id="unknownAvatar" part="unknownAvatar" name="unknownAvatar" exportparts="image"></c-icon>
+			<c-label id="initials" part="initials"></c-label>
+		</template>
 
 	</head>
 	<body class="brandC anon">
 		<c-application href="app.v0.json" state="loading">
-			<c-application-frame>
+			<c-application-frame show-aside="true">
 				<c-application-bar slot="header">
 					<c-button id="burgerMenuButton" slot="menu">🍔</c-button>
 
@@ -80,19 +85,53 @@
 					</ul>
 
 					<c-user-account slot="secondaryMenu" name="">
-						<c-button id="accountButton" type="icon">
+						<c-button id="accountButton" type="icon" onClick="alert('that worked')">
 							<c-face id="userFace" avatar="" name="" size=""></c-face>
 						</c-button>
 					</c-user-account>
 				</c-application-bar>
 
-				<c-panel slot="pannel">
-				</c-panel>
+				<nav slot="aside">
+					<ul>
+						<li>one fish</li>
+						<li>two fish</li>
+						<li>red fish</li>
+						<li>blue fish</li>
+					</ul>
+					<ul>
+						<li>one fish</li>
+						<li>two fish</li>
+						<li>red fish</li>
+						<li>blue fish</li>
+					</ul>
+					<ul>
+						<li>one fish</li>
+						<li>two fish</li>
+						<li>red fish</li>
+						<li>blue fish</li>
+					</ul>
+					<ul>
+						<li>one fish</li>
+						<li>two fish</li>
+						<li>red fish</li>
+						<li>blue fish</li>
+					</ul>
+					<ul>
+						<li>one fish</li>
+						<li>two fish</li>
+						<li>red fish</li>
+						<li>blue fish</li>
+					</ul>
+				</nav>
 
-				<c-pager id="statePager">
+				<c-pager id="statePager" slot="main">
 					<c-page id="anon" name="anon">
-						<a href="https://github.com/login/oauth/authorize?scope=user&client_id=86bb02292e0e29cc1ae6&state=37" id="loginButton" kind="text" slot="login">Login</a>
-						<svg slot="login"
+						<a
+							href="https://github.com/login/oauth/authorize?scope=user&client_id=86bb02292e0e29cc1ae6&state=37"
+							id="githubLoginButton"
+							kind="text">Login with GitHub</a>
+						<svg
+							id="githubLoginLogo"
 							fill="black"
 							role="img"
 							viewBox="0 0 24 24"

@@ -1,16 +1,17 @@
 
+
 //
-export class Icon extends HTMLElement {
+export class Label extends HTMLElement {
 	constructor() {
 		super()
 
-		const template = document.getElementById('icon-template')
+		const template = document.getElementById('label-template')
 		const content = template.content
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return ['name', 'size'] }
+	static get observedAttributes() { return [] }
 
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}

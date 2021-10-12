@@ -7,8 +7,8 @@ export class Pager extends HTMLElement {
 
 		const template = document.getElementById('pager-template')
 		const content = template.content
-		const shadow = this.attachShadow({ mode: 'open' })
-		shadow.appendChild(content.cloneNode(true))
+		const shadowRoot = this.attachShadow({ mode: 'open' })
+		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
 	static get observedAttributes() { return ['page'] }

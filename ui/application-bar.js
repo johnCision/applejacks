@@ -8,8 +8,8 @@ export class ApplicationBar extends HTMLElement {
 
 		const template = document.getElementById('application-bar-template')
 		const content = template.content
-		const root = this.attachShadow({ mode: 'open' })
-		root.appendChild(content.cloneNode(true))
+		const shadowRoot = this.attachShadow({ mode: 'open' })
+		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
 	static get observedAttributes() { return [ ] }

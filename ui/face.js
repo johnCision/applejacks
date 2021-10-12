@@ -7,19 +7,24 @@ export class Face extends HTMLElement {
 
 		const template = document.getElementById('face-template')
 		const content = template.content
-		this._shadowDom = this.attachShadow({ mode: 'open' })
-		this._shadowDom.appendChild(content.cloneNode(true))
+		const shadowRoot = this.attachShadow({ mode: 'open' })
+		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return [ 'size', 'avatar' ] }
+	static get observedAttributes() { return [ 'size', 'avatar', 'initials' ] }
 
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}
 	adoptedCallback() {}
 	attributeChangedCallback(name, oldValue, newValue) {
-		const imgElem = this.shadowRoot.querySelector('IMG')
-		imgElem.setAttributeNS('', 'src', newValue)
-		imgElem.setAttributeNS('', 'height', '64px')
-		imgElem.setAttributeNS('', 'width', '64px')
+
+		const avatarElem = this.shadowRoot.getElementById('avatar')
+		const unknownFaceElem = this.shadowRoot.getElementById('unknownFace')
+		const initialsElem = this.shadowRoot.getElementById('initials')
+
+
+		avatarElem.setAttributeNS('', 'src', newValue)
+
+		//initialsElem.setAttribute
 	}
 }
