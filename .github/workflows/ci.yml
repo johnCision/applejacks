@@ -3,12 +3,22 @@ on: [ push, pull_request, workflow_dispatch ]
 
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: [ 14, 16 ]
+        os: [ ubuntu-latest ]
     steps:
       - uses: actions/checkout@v2
-      - run: npm i
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@cision'
+      - run: npm install
+      - run: npm run test:web --if-present
       - run: npm run test:service --if-present
       - run: npm run lint:web --if-present
       - run: npm run lint:service --if-present
       - run: npm run coverage:web --if-present
       - run: npm run coverage:server --if-present
+
