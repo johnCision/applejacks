@@ -12,10 +12,10 @@ export async function createRouter(options) {
 		// fire promise for response
 		handler(method, pathname, search)
 			.then(result => {
-				const ab = ArrayBuffer.from(result)
-				if(ab.byteLength !== Buffer.byteLength) { console.warn('ab missmatch')}
+				const enc = new TextEncoder()
+				const ab = enc.encode(result)
 				res.writeHead(200, {
-					'Content-Length': Buffer.byteLength(result),
+					'Content-Length': ab.byteLength,
 					'Content-Type': 'applicatin/json; charset=utf-8',
 					'Access-Control-Allow-Origin': '*'
 				})
@@ -24,8 +24,8 @@ export async function createRouter(options) {
 			})
 			.catch(e => {
 				console.log({ e })
-				res.writeHead(200)
-				res.write({ e })
+				res.writeHead(200, { 'Access-Control-Allow-Origin': '*' })
+				res.write(JSON.stringify({ e }))
 				res.end()
 			})
 	}

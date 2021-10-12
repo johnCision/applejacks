@@ -34,7 +34,7 @@ function onContentLoadedSync() {
 	// otherwize, exception will be lost
 	onContentLoaded()
 		.then()
-		.catch(e => console.error(e))
+		.catch(e => console.log({ e }))
 }
 async function onContentLoaded() {
 	console.log('Here we go')

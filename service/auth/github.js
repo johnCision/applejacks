@@ -66,6 +66,7 @@ async function request_token(code) {
 
 
 export async function handleGithubAuth(method, pathname, search) {
+	console.log('handling github auth')
 	if(pathname !== '/github_token') { throw new Error('unhandled pathname') }
 	const sp = new URLSearchParams(search)
 
