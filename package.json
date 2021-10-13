@@ -4,9 +4,13 @@
   "description": "",
   "main": "./",
   "type": "module",
-  "exports": {
-    "import": "./"
+   "exports": {
+     ".": "./lib/index.js",
+    "./application-frame": "./application-frame.js"
   },
+  "files": [
+    "application-frame.js"
+  ],
   "scripts": {
     "lint": "eslint .",
     "ux": "node service/ux.js"
@@ -21,4 +25,9 @@
     "url": "https://github.com/johnCision/applejacks/issues"
   },
   "homepage": "https://github.com/johnCision/applejacks#readme"
+}
+
+
+
+
 }
