@@ -1,7 +1,0 @@
-{
-	"name": "@johncision/ux-service",
-	"type":"module",
-	"scripts": {
-		"ux": "node ux"
-	}
-}
