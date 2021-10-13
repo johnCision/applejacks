@@ -53,12 +53,26 @@ async function onContentLoaded() {
 
 	//
 	const serviceWorkerRegistration = await navigator.serviceWorker.register(
-		'service-worker.js',
+		'/apps/delight/service-worker.js',
 		{ type: 'module', scope: './' })
 
 	navigator.serviceWorker.addEventListener('message', message => {
 
 	})
+
+	//
+	if(Notification.permission === 'granted') {
+		const notification = new Notification('Hi there!')
+	}
+	else if(Notification.permission === 'denied') {
+		// awe
+	}
+	else {
+		const permission = await Notification.requestPermission()
+		if(permission === "granted") {
+			const notification = new Notification('Thanks!')
+		}
+	}
 
 	//
 	const url = new URL(window.location.href)
