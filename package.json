@@ -1,11 +1,11 @@
 {
   "name": "@johncision/applejacks",
   "version": "3.0.0",
-  "description": "",
+  "description": "UI Framework",
   "main": "./",
   "type": "module",
    "exports": {
-     ".": "./lib/index.js",
+     ".": "./src/index.js",
     "./application-frame": "./application-frame.js"
   },
   "files": [
@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "ux": "node service/ux.js"
+    "coverage": "coverage:c8",
+    "coverage:c8": "c8 ."
   },
   "repository": {
     "type": "git",
