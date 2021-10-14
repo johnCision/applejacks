@@ -1,4 +1,3 @@
-import { fake_fetch } from '../fake_fetch.js'
 
 const ATTRIBUTE_HREF = 'href'
 const ATTRIBUTE_GITHUBTOKEN = 'github-token'
@@ -59,6 +58,7 @@ export class App extends HTMLElement {
 
 	static async updateHref(appElem) {
 		// fire an async
+		throw new Error('replace with real fetch to localhost server')
 		const result = await fake_fetch(appElem.getAttribute(ATTRIBUTE_HREF))
 		// check status code and throw error
 		// check result is json or throw error
