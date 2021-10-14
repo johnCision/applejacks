@@ -1,34 +1,37 @@
 {
-  "name": "@johncision/applejacks",
-  "version": "3.0.0",
-  "description": "UI Framework",
-  "main": "./",
-  "type": "module",
-   "exports": {
-     ".": "./src/index.js",
-    "./application-frame": "./application-frame.js"
-  },
-  "files": [
-    "application-frame.js"
-  ],
-  "scripts": {
-    "lint": "eslint .",
-    "coverage": "coverage:c8",
-    "coverage:c8": "c8 ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johnCision/applejacks.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/johnCision/applejacks/issues"
-  },
-  "homepage": "https://github.com/johnCision/applejacks#readme"
+	"name": "@johncision/applejacks",
+	"version": "3.0.0",
+	"description": "UI Framework",
+	"type": "module",
+	"exports": {
+		".": "./src/index.js",
+		"./application": "./src/application.js",
+		"./application-frame": "./src/application-frame.js",
+		"./application-bar": "./src/application-bar.js",
+		"./button": "./src/button.js",
+		"./face": "./src/face.js",
+		"./icon": "./src/icon.js",
+		"./pager": "./src/pager.js",
+		"./page": "./src/page.js",
+		"./user-account": "./src/user-account.js"
+	},
+	"files": [
+		"src/**/*.js"
+	],
+	"scripts": {
+		"lint": "eslint .",
+		"coverage": "coverage:c8",
+		"coverage:c8": "c8 ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/johnCision/applejacks.git"
+	},
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/johnCision/applejacks/issues"
+	},
+	"homepage": "https://github.com/johnCision/applejacks#readme"
 }
-
-
-
-
 }
