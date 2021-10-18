@@ -10,7 +10,7 @@ export class ApplicationFrame extends HTMLElement {
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return ['show-aside'] }
+	static get observedAttributes() { return ['show-aside', 'show-toolbar'] }
 
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}

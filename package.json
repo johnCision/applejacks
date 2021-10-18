@@ -9,6 +9,7 @@
 		"./application-frame": "./src/application-frame.js",
 		"./application-bar": "./src/application-bar.js",
 		"./button": "./src/button.js",
+		"./button-set": "./src/button-set.js",
 		"./face": "./src/face.js",
 		"./icon": "./src/icon.js",
 		"./pager": "./src/pager.js",
