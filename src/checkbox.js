@@ -1,11 +1,10 @@
-
 //
 export class Checkbox extends HTMLElement {
 	constructor() {
 		super()
 
 		const template = document.getElementById('checkbox-template')
-		const content = template.content
+		const { content } = template
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
@@ -15,5 +14,5 @@ export class Checkbox extends HTMLElement {
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}
 	adoptedCallback() {}
-	attributeChangedCallback(name, oldValue, newValue) {  }
+	attributeChangedCallback(_name, _oldValue, _newValue) { }
 }

@@ -1,12 +1,10 @@
-
-
 //
 export class Header extends HTMLElement {
 	constructor() {
 		super()
 
-		const template = document.getElementById('heaer-template')
-		const content = template.content
+		const template = document.getElementById('header-template')
+		const { content } = template
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
@@ -16,5 +14,5 @@ export class Header extends HTMLElement {
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}
 	adoptedCallback() {}
-	attributeChangedCallback(name, oldValue, newValue) {  }
+	attributeChangedCallback(_name, _oldValue, _newValue) { }
 }
