@@ -1,4 +1,5 @@
 node_modules/
+coverage/
 
 *.pem
 *.pfx
@@ -7,3 +8,4 @@ node_modules/
 .DS_Store
 
 .vscode
+

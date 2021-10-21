@@ -20,10 +20,29 @@
 		"src/**/*.js"
 	],
 	"scripts": {
-		"lint": "eslint .",
-		"coverage": "coverage:c8",
-		"coverage:c8": "c8 ."
+		"lint": "eslint --quiet .",
+		"test": "mocha .",
+		"coverage": "c8 --check-coverage --all npm run test -- --no-parallel --reporter min"
 	},
+	"eslintConfig": {
+		"extends": [
+			"@johncision/eslint-config/module"
+		],
+		"ignorePatterns": "spec/**",
+		"env": {
+			"node": true
+		}
+	},
+	"mocha": {
+		"spec": [
+      "spec/*.spec.js"
+    ],
+    "watch": false,
+    "sort": false,
+    "forbitOnly": true,
+    "check-leaks": true
+	},
+
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/johnCision/applejacks.git"
@@ -33,5 +52,18 @@
 	"bugs": {
 		"url": "https://github.com/johnCision/applejacks/issues"
 	},
-	"homepage": "https://github.com/johnCision/applejacks#readme"
+	"homepage": "https://github.com/johnCision/applejacks#readme",
+	"devDependencies": {
+		"@johncision/eslint-config": "^3.0.9",
+		"c8": "^7.10.0",
+		"chai": "^4.3.4",
+		"eslint": "^8.0.1",
+		"eslint-plugin-fp": "^2.3.0",
+		"eslint-plugin-immutable": "^1.0.0",
+		"eslint-plugin-import": "^2.25.2",
+		"eslint-plugin-no-loops": "^0.3.0",
+		"eslint-plugin-security": "^1.4.0",
+		"eslint-plugin-spellcheck": "^0.0.19",
+		"mocha": "^9.1.3"
+	}
 }
