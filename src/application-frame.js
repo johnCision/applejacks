@@ -9,6 +9,15 @@ export class ApplicationFrame extends HTMLElement {
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
+	get showAside() {
+		const show = this.getAttributeNS('', 'show-aside')
+		return show === true
+	}
+	set showAside(value) {
+		if(value) { this.setAttributeNS('', 'show-aside', true); return }
+		this.removeAttributeNS('', 'show-aside')
+	}
+
 	static get observedAttributes() { return ['show-aside', 'show-toolbar'] }
 
 	connectedCallback() {} // appended into a document

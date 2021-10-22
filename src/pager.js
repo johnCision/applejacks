@@ -15,15 +15,19 @@ export class Pager extends HTMLElement {
 	disconnectedCallback() { }
 	adoptedCallback() { }
 	attributeChangedCallback(name, oldValue, newValue) {
+		// if targetActiveElement is a c-page then active=true works
+		// however if it is not, then we should use data-active=true
+		// this would be useful to support non page element switching
 
 		if(name !== 'page') { return }
 
 		const lastActiveElem = this.querySelector('*[active="true"]')
-		console.log({ lastActiveElem })
 		if(lastActiveElem) { lastActiveElem.removeAttributeNS('', 'active') }
 
 		const targetActiveElement = this.querySelector('*[name="' + newValue + '"]')
-		console.log({ targetActiveElement })
+
 		targetActiveElement.setAttributeNS('', 'active', 'true')
+
+
 	}
 }
