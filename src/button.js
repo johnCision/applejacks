@@ -9,10 +9,20 @@ export class Button extends HTMLElement {
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return [ 'kind', 'icon', 'size' ] }
+	static get observedAttributes() { return [ 'kind', 'icon', 'size', 'disabled' ] }
 
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}
 	adoptedCallback() {}
-	attributeChangedCallback(_name, _oldValue, _newValue) { }
+	attributeChangedCallback(name, _oldValue, newValue) {
+		if(name !== 'disabled') { return }
+		const has = this.hasAttributeNS('', 'disabled')
+		const buttonElem = this.shadowRoot.querySelector('button')
+
+		console.log( { has, buttonElem})
+
+		if(has) {
+			buttonElem.setAttributeNS('', 'disabled', newValue)
+		}
+	}
 }
