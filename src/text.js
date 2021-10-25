@@ -8,7 +8,7 @@ export class Text extends HTMLElement {
 		this.#hasAdoptedText = false
 	}
 
-	static get observedAttributes() { return [ 'lang', 'key', 'refresh' ] }
+	static get observedAttributes() { return [ 'lang', 'key' ] }
 
 	connectedCallback() { } // appended into a document
 	disconnectedCallback() { }
