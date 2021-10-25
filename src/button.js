@@ -1,3 +1,9 @@
+function onClick(event) {
+	//console.log('inner, button event', event)
+	//const disabled = event.target.getAttributeNS('', 'disabled')
+	//console.log({ disabled })
+}
+
 //
 export class Button extends HTMLElement {
 	constructor() {
@@ -11,7 +17,12 @@ export class Button extends HTMLElement {
 
 	static get observedAttributes() { return [ 'kind', 'icon', 'size', 'disabled' ] }
 
-	connectedCallback() {} // appended into a document
+	connectedCallback() {
+
+		const buttonElem = this.shadowRoot.querySelector('#button')
+		buttonElem.addEventListener('click', onClick)
+		//console.warn('connect', buttonElem)
+	}
 	disconnectedCallback() {}
 	adoptedCallback() {}
 	attributeChangedCallback(name, _oldValue, newValue) {
@@ -19,10 +30,11 @@ export class Button extends HTMLElement {
 		const has = this.hasAttributeNS('', 'disabled')
 		const buttonElem = this.shadowRoot.querySelector('button')
 
-		console.log( { has, buttonElem})
-
 		if(has) {
 			buttonElem.setAttributeNS('', 'disabled', newValue)
+			return
 		}
+
+		buttonElem.removeAttributeNS('', 'disabled')
 	}
 }

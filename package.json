@@ -1,6 +1,6 @@
 {
 	"name": "@johncision/applejacks",
-	"version": "3.2.3",
+	"version": "3.3.0",
 	"description": "UI Framework",
 	"type": "module",
 	"exports": {
@@ -14,7 +14,8 @@
 		"./icon": "./src/icon.js",
 		"./pager": "./src/pager.js",
 		"./page": "./src/page.js",
-		"./user-account": "./src/user-account.js"
+		"./user-account": "./src/user-account.js",
+		"./text": "./src/text.js"
 	},
 	"files": [
 		"src/**/*.js"
@@ -51,7 +52,8 @@
         {
           "minLength": 4,
           "skipWords": [
-            "checkbox"
+            "checkbox",
+						"lang", "href"
           ]
         }
       ]
