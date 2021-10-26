@@ -1,11 +1,9 @@
 //
 export class Text extends HTMLElement {
-	#hasAdoptedText
+
 
 	constructor() {
 		super()
-
-		this.#hasAdoptedText = false
 	}
 
 	static get observedAttributes() { return [ 'lang', 'key' ] }
@@ -14,62 +12,46 @@ export class Text extends HTMLElement {
 	disconnectedCallback() { }
 	adoptedCallback() { }
 	attributeChangedCallback(name, oldValue, newValue) {
-
-		//
-		const keyValue = this.getAttributeNS('', 'key')
-		const langValue = this.getAttributeNS('', 'lang')
-
-
-		if(!this.#hasAdoptedText && Text.shouldAdoptText(this, oldValue)) {
-
-			Text.adoptText(this)
-
-			this.#hasAdoptedText = true
-		}
+		console.log('text attr changed', name, newValue)
 
 		if(name === 'key') { return }
 		if(name !== 'lang') { return }
 
+		const key = this.getAttributeNS('', 'key')
+		const lang = newValue
+
 		//
-		const existingSpanElem = this.querySelector('span[lang="' + newValue + '"]')
+		const existingSpanElem = this.querySelector('span[lang="' + lang + '"]')
 		if(existingSpanElem) { return }
 
-		// const response = await fetch(urlToKeyServer)
-		// response.ok()
-		// const result = await response.json()
 
-		const text = 'Now is the time'
-		const spanElem = Text.createLangSpan(newValue, text)
-		this.appendChild(spanElem)
+		const serviceElem = document.querySelector('c-text-service')
+		const href = serviceElem.getAttributeNS('', 'href')
 
-	}
+		const url = new URL(href)
+		const search = new URLSearchParams(url.search)
+		search.append('keys', key)
+		search.append('lang', lang)
+		url.search = search
 
-	static adoptText(textElem) {
-		const langValue = textElem.getAttributeNS('', 'lang')
-		const text = textElem.innerText
+		fetch(url)
+			.then(response => response.json())
+			.then(result => {
+				const text = result[key]
+				if(text === undefined) { console.log({ result }); throw new Error('unresolved key: ' + key) }
 
-		textElem.childNodes.forEach(c => c.remove())
 
-		const adoptedSpanElem = Text.createLangSpan(langValue, text)
-		textElem.appendChild(adoptedSpanElem)
-	}
+				const anySpanElem = this.querySelector('span')
+				if(anySpanElem === null) {
+					// no span, initial state, may have raw-text
+					this.childNodes.forEach(c => c.remove())
+				}
 
-	static shouldAdoptText(textElem, oldValue) {
-		if(oldValue !== null) { return false }
-
-		const langValue = textElem.getAttributeNS('', 'lang')
-		const keyValue = textElem.getAttributeNS('', 'key')
-
-		if(langValue === undefined) { return false }
-		if(keyValue === undefined) { return false }
-
-		if(langValue === null) { return false }
-		if(keyValue === null) { return false }
-
-		if(langValue === '') { return false }
-		if(keyValue === '') { return false }
-
-		return true
+				// now create a cache item of the lookup
+				const spanElem = Text.createLangSpan(lang, text)
+				this.appendChild(spanElem)
+			})
+			.catch(e => console.warn('key fetch error', { e }))
 	}
 
 	static createLangSpan(lang, text) {
