@@ -2,14 +2,9 @@
 export class Page extends HTMLElement {
 	constructor() {
 		super()
-
-		const template = document.getElementById('page-template')
-		const { content } = template
-		const shadowRoot = this.attachShadow({ mode: 'open' })
-		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return [''] }
+	static get observedAttributes() { return ['active'] }
 
 	connectedCallback() { } // appended into a document
 	disconnectedCallback() { }

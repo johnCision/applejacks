@@ -2,11 +2,6 @@
 export class Pager extends HTMLElement {
 	constructor() {
 		super()
-
-		const template = document.getElementById('pager-template')
-		const { content } = template
-		const shadowRoot = this.attachShadow({ mode: 'open' })
-		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
 	static get observedAttributes() { return ['page'] }
@@ -27,7 +22,5 @@ export class Pager extends HTMLElement {
 		const targetActiveElement = this.querySelector('*[name="' + newValue + '"]')
 
 		targetActiveElement.setAttributeNS('', 'active', 'true')
-
-
 	}
 }
