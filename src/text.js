@@ -36,7 +36,6 @@ export class Text extends HTMLElement {
 					throw new Error('unresolved key: ' + key)
 				}
 
-
 				const anySpanElem = this.querySelector('span')
 				if(anySpanElem === null) {
 					// no span, initial state, may have raw-text
@@ -48,7 +47,7 @@ export class Text extends HTMLElement {
 				this.appendChild(spanElem)
 			})
 			.catch(e => {
-				//console.warn('key fetch error', { e })
+				// console.warn('key fetch error', { e })
 				console.log('key fetch', e)
 			})
 	}
