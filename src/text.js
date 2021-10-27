@@ -12,7 +12,7 @@ export class Text extends HTMLElement {
 	disconnectedCallback() { }
 	adoptedCallback() { }
 	attributeChangedCallback(name, oldValue, newValue) {
-		console.log('text attr changed', name, newValue)
+		// console.log('text attr changed', name, newValue)
 
 		if(name === 'key') { return }
 		if(name !== 'lang') { return }
