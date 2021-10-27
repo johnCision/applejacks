@@ -17,8 +17,7 @@ export class Text extends HTMLElement {
 
 		//
 		const existingSpanElem = this.querySelector('span[lang="' + lang + '"]')
-		if(existingSpanElem) { return }
-
+		if(existingSpanElem !== null) { return }
 
 		const serviceElem = document.querySelector('c-text-service')
 		const href = serviceElem.getAttributeNS('', 'href')
@@ -34,7 +33,7 @@ export class Text extends HTMLElement {
 			.then(result => {
 				const text = result[key]
 				if(text === undefined) {
-					console.log({ result }); throw new Error('unresolved key: ' + key)
+					throw new Error('unresolved key: ' + key)
 				}
 
 
@@ -48,7 +47,10 @@ export class Text extends HTMLElement {
 				const spanElem = Text.createLangSpan(lang, text)
 				this.appendChild(spanElem)
 			})
-			.catch(e => console.warn('key fetch error', { e }))
+			.catch(e => {
+				//console.warn('key fetch error', { e })
+				console.log('key fetch', e)
+			})
 	}
 
 	static createLangSpan(lang, text) {
