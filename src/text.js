@@ -1,17 +1,12 @@
 //
 export class Text extends HTMLElement {
 
-
-	constructor() {
-		super()
-	}
-
 	static get observedAttributes() { return [ 'lang', 'key' ] }
 
 	connectedCallback() { } // appended into a document
 	disconnectedCallback() { }
 	adoptedCallback() { }
-	attributeChangedCallback(name, oldValue, newValue) {
+	attributeChangedCallback(name, _oldValue, newValue) {
 		// console.log('text attr changed', name, newValue)
 
 		if(name === 'key') { return }
@@ -38,7 +33,9 @@ export class Text extends HTMLElement {
 			.then(response => response.json())
 			.then(result => {
 				const text = result[key]
-				if(text === undefined) { console.log({ result }); throw new Error('unresolved key: ' + key) }
+				if(text === undefined) {
+					console.log({ result }); throw new Error('unresolved key: ' + key)
+				}
 
 
 				const anySpanElem = this.querySelector('span')

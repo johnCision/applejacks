@@ -1,6 +1,6 @@
 {
 	"name": "@johncision/applejacks",
-	"version": "3.3.0",
+	"version": "3.3.1",
 	"description": "UI Framework",
 	"type": "module",
 	"exports": {
@@ -38,7 +38,7 @@
 			"class-methods-use-this": "warn",
 			"no-empty-function": "warn",
 			"fp/no-nil": "off",
-      "immutable/no-this": "warn",
+      "immutable/no-this": "off",
 			"fp/no-unused-expression": "off",
       "no-unused-vars": [
 				"error",

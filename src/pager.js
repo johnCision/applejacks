@@ -1,8 +1,5 @@
 //
 export class Pager extends HTMLElement {
-	constructor() {
-		super()
-	}
 
 	static get observedAttributes() { return ['page'] }
 

@@ -1,7 +1,7 @@
 function onClick(event) {
-	//console.log('inner, button event', event)
-	//const disabled = event.target.getAttributeNS('', 'disabled')
-	//console.log({ disabled })
+	console.log('inner, button event', event.target)
+	// const disabled = event.target.getAttributeNS('', 'disabled')
+	// console.log({ disabled })
 }
 
 //
@@ -15,13 +15,13 @@ export class Button extends HTMLElement {
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return [ 'kind', 'icon', 'size', 'disabled' ] }
+	static get observedAttributes() {
+		return [ 'kind', 'icon', 'size', 'disabled' ]
+	}
 
 	connectedCallback() {
-
 		const buttonElem = this.shadowRoot.querySelector('#button')
 		buttonElem.addEventListener('click', onClick)
-		//console.warn('connect', buttonElem)
 	}
 	disconnectedCallback() {}
 	adoptedCallback() {}

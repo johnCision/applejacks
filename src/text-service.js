@@ -3,9 +3,6 @@ const ATTR_HREF = 'href'
 
 //
 export class TextService extends HTMLElement {
-	constructor() {
-		super()
-	}
 
 	static get observedAttributes() { return [ ATTR_HREF ] }
 
@@ -35,9 +32,8 @@ export class TextService extends HTMLElement {
 	}
 	disconnectedCallback() { }
 	adoptedCallback() { }
-	attributeChangedCallback(name, oldValue, newValue) {
-		if(name !== ATTR_HREF) { return }
-
+	attributeChangedCallback(_name, _oldValue, _newValue) {
+		// if(name !== ATTR_HREF) { return }
 		// should we tell all the c-text to update?
 	}
 }

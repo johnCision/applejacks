@@ -1,3 +1,9 @@
+const ATTR = {
+	SIZE: 'size',
+	AVATAR: 'avatar',
+	INITIALS: 'initials'
+}
+
 //
 export class Face extends HTMLElement {
 	constructor() {
@@ -9,14 +15,17 @@ export class Face extends HTMLElement {
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return [ 'size', 'avatar', 'initials' ] }
+	static get observedAttributes() {
+		// return [ 'size', 'avatar', 'initials' ]
+		return Object.keys(ATTR).map(k => ATTR[k])
+	}
 
 	connectedCallback() {} // appended into a document
 	disconnectedCallback() {}
 	adoptedCallback() {}
 	attributeChangedCallback(name, oldValue, newValue) {
 
-		const avatarElem = this.shadowRoot.getElementById('avatar')
+		const avatarElem = this.shadowRoot.getElementById(ATTR.AVATAR)
 		// const unknownFaceElem = this.shadowRoot.getElementById('unknownFace')
 		// const initialsElem = this.shadowRoot.getElementById('initials')
 

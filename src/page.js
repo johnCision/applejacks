@@ -1,8 +1,5 @@
 //
 export class Page extends HTMLElement {
-	constructor() {
-		super()
-	}
 
 	static get observedAttributes() { return ['active'] }
 
