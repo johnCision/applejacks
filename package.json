@@ -22,7 +22,7 @@
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
-		"test": "mocha .",
+		"test": "jest",
 		"coverage": "c8 --lines 2 --functions 0 --branches 2 --check-coverage --all npm run test -- --no-parallel --reporter min"
 	},
 	"eslintConfig": {
@@ -38,9 +38,9 @@
 			"class-methods-use-this": "warn",
 			"no-empty-function": "warn",
 			"fp/no-nil": "off",
-      "immutable/no-this": "off",
+			"immutable/no-this": "off",
 			"fp/no-unused-expression": "off",
-      "no-unused-vars": [
+			"no-unused-vars": [
 				"error",
 				{
 					"argsIgnorePattern": "^_",
@@ -48,27 +48,40 @@
 				}
 			],
 			"spellcheck/spell-checker": [
-        "error",
-        {
-          "minLength": 4,
-          "skipWords": [
-            "checkbox",
-						"lang", "href"
-          ]
-        }
-      ]
+				"error",
+				{
+					"minLength": 4,
+					"skipWords": [
+						"checkbox",
+						"lang",
+						"href"
+					]
+				}
+			]
 		}
+	},
+	"jest": {
+		"verbose": true,
+		"collectCoverage": true,
+		"coverageDirectory": "coverage",
+		"coverageProvider": "v8",
+		"moduleFileExtensions": [
+			"js"
+		],
+		"testMatch": [
+			"**/test/*.js"
+		],
+		"transform": {}
 	},
 	"mocha": {
 		"spec": [
-      "spec/*.spec.js"
-    ],
-    "watch": false,
-    "sort": false,
-    "forbitOnly": true,
-    "check-leaks": true
+			"spec/*.spec.js"
+		],
+		"watch": false,
+		"sort": false,
+		"forbitOnly": true,
+		"check-leaks": true
 	},
-
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/johnCision/applejacks.git"
@@ -80,6 +93,7 @@
 	},
 	"homepage": "https://github.com/johnCision/applejacks#readme",
 	"devDependencies": {
+		"@jest/globals": "^27.3.1",
 		"@johncision/eslint-config": "^3.0.9",
 		"c8": "^7.10.0",
 		"chai": "^4.3.4",
@@ -90,6 +104,7 @@
 		"eslint-plugin-no-loops": "^0.3.0",
 		"eslint-plugin-security": "^1.4.0",
 		"eslint-plugin-spellcheck": "^0.0.19",
+		"jest": "^27.3.1",
 		"mocha": "^9.1.3"
 	}
 }
