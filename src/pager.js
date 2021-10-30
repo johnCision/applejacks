@@ -1,34 +1,46 @@
-const ATTR_ACTIVE = 'active' // could be data-active
+const HTML5NS = ''
+
+// this components control attribute
 const ATTR_PAGE = 'page'
+
+// attributes on target pages
+const ATTR_NAME = 'name'
+const ATTR_ACTIVE = 'active' // could be data-active
+const ATTR_ACTIVE_VALUE = 'true'
+
+const PAGE_NAMES_UNKNOWN = 'unknown'
+
+function selectorForPage(name) {
+	return ':scope > *[' + ATTR_NAME + '="' + name + '"]'
+}
+const UNKNOWN_PAGE_SELECTOR = selectorForPage(PAGE_NAMES_UNKNOWN)
+const ACTIVE_PAGE_SELECTOR = ':scope > *[' + ATTR_ACTIVE + ']'
 
 //
 export class Pager extends HTMLElement {
-
 	static get observedAttributes() { return [ ATTR_PAGE ] }
 
-	connectedCallback() { } // appended into a document
-	disconnectedCallback() { }
-	adoptedCallback() { }
 	attributeChangedCallback(name, oldValue, newValue) {
-		// if targetActiveElement is a c-page then active=true works
-		// however if it is not, then we should use data-active=true
-		// this would be useful to support non page element switching
-
+		// only update on page change
 		if(name !== ATTR_PAGE) { return }
 
-		const lastActiveElem = this.querySelector('*[' + ATTR_ACTIVE + ']')
+		// toss out last active page (querySelectorAll for good measure?)
+		const lastActiveElem = this.querySelector(ACTIVE_PAGE_SELECTOR)
 		if(lastActiveElem) { lastActiveElem.removeAttribute(ATTR_ACTIVE) }
 
-		const targetActiveElement = this.querySelector('*[name="' + newValue + '"]')
+		// find the next active page
+		const nextActiveElem = this.querySelector(selectorForPage(newValue))
 
-		if(targetActiveElement !== null) {
-			targetActiveElement.setAttribute(ATTR_ACTIVE, 'true')
+		// if found then set active
+		if(nextActiveElem !== null) {
+			nextActiveElem.setAttribute(ATTR_ACTIVE, ATTR_ACTIVE_VALUE)
 			return
 		}
 
-		const unknownPageElement = this.querySelector('*[name="unknown"]')
+		// fallback if not found to unknown if exists
+		const unknownPageElement = this.querySelector(UNKNOWN_PAGE_SELECTOR)
 		if(unknownPageElement !== null) {
-			unknownPageElement.setAttribute(ATTR_ACTIVE, true)
+			unknownPageElement.setAttribute(ATTR_ACTIVE, ATTR_ACTIVE_VALUE)
 			return
 		}
 
