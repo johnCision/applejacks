@@ -3,7 +3,8 @@
 const ATTRS = {
 	SHOW_ASIDE: 'show-aside',
 	SHOW_TOOLBAR: 'show-toolbar',
-	SHOW_CHAT: 'show-chat'
+	SHOW_CHAT: 'show-chat',
+	SHOW_ALERT: 'show-alert'
 }
 
 //

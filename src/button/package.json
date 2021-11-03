@@ -1,24 +1,13 @@
 {
-	"name": "@johncision/applejacks",
-	"version": "4.0.2",
+	"name": "@johncision/applejacks-button",
+	"version": "1.0.0",
 	"description": "UI Framework",
 	"type": "module",
 	"exports": {
-		".": "./src/index.js",
-		"./application-frame": "./src/application-frame/application-frame.js",
-		"./application-bar": "./src/application-bar.js",
-		"./button": "./src/button/src/button.js",
-		"./button-set": "./src/button-set/button-set.js",
-		"./checkbox": "./src/checkbox/checkbox.js",
-		"./face": "./src/face.js",
-		"./link": "./src/link/link.js",
-		"./icon": "./src/icon.js",
-		"./pager": "./src/pager.js",
-		"./progress": "./src/progress/progress.js"
+		".": "./src/button.js"
 	},
 	"files": [
-		"src/index.js",
-		"src/*/src/*.js"
+		"src/**/*.js"
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
@@ -27,38 +16,8 @@
 	},
 	"eslintConfig": {
 		"extends": [
-			"@johncision/eslint-config/module"
-		],
-		"ignorePatterns": "spec/**",
-		"env": {
-			"node": false,
-			"browser": true
-		},
-		"rules": {
-			"class-methods-use-this": "warn",
-			"no-empty-function": "warn",
-			"fp/no-nil": "off",
-			"immutable/no-this": "off",
-			"fp/no-unused-expression": "off",
-			"no-unused-vars": [
-				"error",
-				{
-					"argsIgnorePattern": "^_",
-					"varsIgnorePattern": "^_"
-				}
-			],
-			"spellcheck/spell-checker": [
-				"error",
-				{
-					"minLength": 4,
-					"skipWords": [
-						"checkbox",
-						"lang",
-						"href"
-					]
-				}
-			]
-		}
+			"../../package.json"
+		]
 	},
 	"jest": {
 		"verbose": true,
