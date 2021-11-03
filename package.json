@@ -1,6 +1,6 @@
 {
 	"name": "@johncision/applejacks",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"description": "UI Framework",
 	"type": "module",
 	"exports": {
