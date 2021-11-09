@@ -22,8 +22,8 @@
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
-		"Xtest": "jest",
-		"test": "mocha",
+		"test": "jest",
+		"x-test": "mocha",
 		"coverage": "c8 --lines 2 --functions 0 --branches 2 --check-coverage --all npm run test -- --no-parallel --reporter min"
 	},
 	"eslintConfig": {
@@ -63,6 +63,7 @@
 	},
 	"jest": {
 		"verbose": true,
+		"testEnvironment": "jsdom",
 		"collectCoverage": true,
 		"coverageDirectory": "coverage",
 		"coverageProvider": "v8",
