@@ -30,7 +30,7 @@
 		"extends": [
 			"@johncision/eslint-config/module"
 		],
-		"ignorePatterns": "spec/**",
+		"ignorePatterns": [ "spec/**", "test/**" ],
 		"env": {
 			"node": false,
 			"browser": true
