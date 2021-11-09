@@ -1,5 +1,3 @@
-const HTML5NS = ''
-
 // this components control attribute
 const ATTR_PAGE = 'page'
 
