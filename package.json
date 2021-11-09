@@ -22,7 +22,7 @@
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
-		"test": "jest",
+		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
 		"x-test": "mocha",
 		"coverage": "c8 --lines 2 --functions 0 --branches 2 --check-coverage --all npm run test -- --no-parallel --reporter min"
 	},
@@ -99,6 +99,7 @@
 		"@johncision/eslint-config": "^3.0.9",
 		"c8": "^7.10.0",
 		"chai": "^4.3.4",
+		"cross-env": "^7.0.3",
 		"eslint": "^8.0.1",
 		"eslint-plugin-fp": "^2.3.0",
 		"eslint-plugin-immutable": "^1.0.0",
