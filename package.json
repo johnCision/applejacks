@@ -22,9 +22,11 @@
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
+
 		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-		"x-test": "mocha",
-		"coverage": "c8 --lines 2 --functions 0 --branches 2 --check-coverage --all npm run test -- --no-parallel --reporter min"
+
+		"x-test": "mocha ",
+		"x-coverage": "c8 --lines 0 --functions 0 --branches 0 --check-coverage --all --exclude 'spec/**' -x 'coverage/**' -x 'test/**' npm run test"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -79,6 +81,7 @@
 		"spec": [
 			"spec/*.spec.js"
 		],
+		"ignore": [ "test/**" ],
 		"watch": false,
 		"sort": false,
 		"forbitOnly": true,
