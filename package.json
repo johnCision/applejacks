@@ -1,6 +1,6 @@
 {
 	"name": "@johncision/applejacks",
-	"version": "3.3.2",
+	"version": "3.3.3",
 	"description": "UI Framework",
 	"type": "module",
 	"exports": {
@@ -22,7 +22,8 @@
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
-		"test": "jest",
+		"Xtest": "jest",
+		"test": "mocha",
 		"coverage": "c8 --lines 2 --functions 0 --branches 2 --check-coverage --all npm run test -- --no-parallel --reporter min"
 	},
 	"eslintConfig": {
