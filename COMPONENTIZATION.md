@@ -17,11 +17,23 @@ and input capabilities) from several perspectives:
 
 ## Why?
 
-as shown bellow, a functional, declarative approach along with exposing state and css isolation provide a foundation that solve to address traditional failures of UI/UX systems.
+as shown bellow, a functional, declarative approach along with exposing state, and css isolation provide a foundation that solve to address traditional failures of UI/UX systems:
 
  - styles can not change independent of component features
  - components beyond the basics are rarely portable or do not exist
-  - compatibility is limited by the external dependencies of individual components
+ - compatibility is limited by the external dependencies of individual components
+
+
+styling of components is a moving target, to assume there is a single style that is stable leads to design and technologies choices that make that assumption. thus, the process of updating, changes independent of component technical features, is key.  to keep pace with the refinement, but also the evolution of the design language will enable innovations within that space, and products
+
+a wide range of ui "toolkit"s over the years have presented parts and pattern for the most basic components, both internal and external supported systems.  and while some have also presented higher level "reusable" components, they traditionally come with a heavy set of rule / environment / dependencies etc.   these limitation hamper the above design process, and add complexity when trying to create a unique company specific brand and style (personality / identity)
+
+this has traditionally been difficult due to the lack of natural composition of DOM (HTML) elements.  and while some frameworks pioneered some of these techniques, they do not solve the core fundamentals of what to compose, but just how.
+
+
+
+
+
 
 
 
