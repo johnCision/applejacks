@@ -17,7 +17,7 @@ and input capabilities) from several perspectives:
 
 ## Why?
 
-as shown bellow, a functional, declarative approach along with exposing state, and css isolation provide a foundation that solve to address traditional failures of UI/UX systems:
+as shown bellow, a functional, declarative approach, along with exposing state and css isolation, provide a foundation that attempts to address traditional failures of ui/ux systems:
 
  - styles can not change independent of component features
  - components beyond the basics are rarely portable or do not exist
@@ -30,10 +30,9 @@ a wide range of ui "toolkit"s over the years have presented parts and pattern fo
 
 this has traditionally been difficult due to the lack of natural composition of DOM (HTML) elements.  and while some frameworks pioneered some of these techniques, they do not solve the core fundamentals of what to compose, but just how.
 
+### ByoD
 
-
-
-
+the separation of the application layer logic from the components used in that expression (in HTML) is key to providing components that truly can be reused.  by aligning on common api interfaces, and providing highly composable components, the normalization of components across a wide range of use cases cna be achieved.
 
 
 
