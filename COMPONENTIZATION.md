@@ -148,3 +148,23 @@ this ability to compose simpler elements into specific functional units that add
 in this case the above the logic that provides the `disabled` management from the JSON api could be encapsulated in a `cision-paged-list`.  that to say. any api that is capable of understanding the `cision-list` api could then be evolved into a list which is capable of paging (as the backend implementation is light up).
 
 and while this interaction leads to a "everything is a resource api", that thinking should not implicitly imply that the api is local, remote, or batch processed.   these consideration are for the application to describe independently from the component implementations and features
+
+
+
+further examples of using element as data storage in the DOM can be again found in the `select` / `option` usage.
+
+
+```html
+	<input list="someDataList" />
+	<!-- ... -->
+	<datalist id="someDataList">
+		<option value="One" />
+		<option value="Two" />
+		<option value="Three" />
+		<!-- ... -->
+	</datalist>
+```
+
+
+
+
