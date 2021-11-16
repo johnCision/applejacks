@@ -1,7 +1,7 @@
 # Componentization
 
 
-	"the process and language by which we break expressions of functionality into smaller, special purpose units and create stable agreed boundaries between them."
+"the process and language by which we break expressions of functionality into smaller, special purpose units and create stable agreed boundaries between them."
 
 
 this process is applied to application (specificity with regard to rendering technologies
@@ -43,7 +43,7 @@ these processes are at the heart of the W3C web fundamentals. It is what has gui
 for example:
 
 ```html
-	<img src="https://some.url/img.fmt>
+<img src="https://some.url/img.fmt>
 ```
 
 while the image tag does not assume its `src`, once set (an events) the `img` element then know how to download and decode some file formats
@@ -52,7 +52,7 @@ while the image tag does not assume its `src`, once set (an events) the `img` el
 also:
 
 ```html
-	<input type="..." disabled>
+<input type="..." disabled>
 ```
 
 we know that the input is disabled, not by evaluating its internal javascript state, but by the expression of the attribute `disabled` on the element itself.
@@ -63,10 +63,10 @@ and produce a wide verity of functionality
 and:
 
 ```html
-	<select>
-		<option>A</options>
-		<option selected>B</options>
-	</select>
+<select>
+	<option>A</options>
+	<option selected>B</options>
+</select>
 ```
 
 while componitization will not solve all complexities, examples solution can be found within the HTML native implementation.
@@ -84,14 +84,14 @@ the build process and developer lifecycle leads to assumption of technologies an
 by further minimizing cross-component dependencies, further flexibility is gained, as follows:
 
 ```html
-	<!-- Wrong -->
-	<not-a-cision-button icon="close" />
+<!-- Wrong -->
+<not-a-cision-button icon="close" />
 
 
-	<!-- Right -->
-	<cision-button>
-		<some-other-icon name="close" slot="icon" />
-	</cision-button>
+<!-- Right -->
+<cision-button>
+	<some-other-icon name="close" slot="icon" />
+</cision-button>
 ```
 
 by further decomposing components, composition of existing, well written, stable components can be assemble to achieve a stable developer expression of the application, while allow abstraction and confidence of the CSS author to make additional changes.
@@ -126,21 +126,21 @@ as noted, a higher-level list component may have a concept of previous and next 
 
 ```html
 
-	<cision-list href="service/hosting/list/json">
-		<cision-list-item>A</cision-list-item>
-		<cision-list-item>B</cision-list-item>
-		<!-- ... -->
+<cision-list href="service/hosting/list/json">
+	<cision-list-item>A</cision-list-item>
+	<cision-list-item>B</cision-list-item>
+	<!-- ... -->
 
-		<cision-button onClick="follow(next)">
-		<cision-button onClick="follow(prev)">
-	</cision-list>
+	<cision-button onClick="follow(next)">
+	<cision-button onClick="follow(prev)">
+</cision-list>
 
 ```
 
 based on those returned results, if say the `prev` page did not exist in the JSON (aka, we are on the first page) the application could manage the `disabled` attribute on the appropriate `cision-button`.
 
 ```html
-	<cision-button onClick="follow(prev)" disabled>
+<cision-button onClick="follow(prev)" disabled>
 ```
 
 this ability to compose simpler elements into specific functional units that add new capabilities is key.
@@ -155,14 +155,14 @@ further examples of using element as data storage in the DOM can be again found 
 
 
 ```html
-	<input list="someDataList" />
+<input list="someDataList" />
+<!-- ... -->
+<datalist id="someDataList">
+	<option value="One" />
+	<option value="Two" />
+	<option value="Three" />
 	<!-- ... -->
-	<datalist id="someDataList">
-		<option value="One" />
-		<option value="Two" />
-		<option value="Three" />
-		<!-- ... -->
-	</datalist>
+</datalist>
 ```
 
 
