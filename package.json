@@ -3,28 +3,16 @@
 	"version": "3.3.4",
 	"description": "UI Framework",
 	"type": "module",
+	"main": "./src/index.js",
 	"exports": {
-		".": "./src/index.js",
-		"./application": "./src/application.js",
-		"./application-frame": "./src/application-frame.js",
-		"./application-bar": "./src/application-bar.js",
-		"./button": "./src/button.js",
-		"./button-set": "./src/button-set.js",
-		"./face": "./src/face.js",
-		"./icon": "./src/icon.js",
-		"./pager": "./src/pager.js",
-		"./page": "./src/page.js",
-		"./user-account": "./src/user-account.js",
-		"./text": "./src/text.js"
+		".": "./src/index.js"
 	},
 	"files": [
 		"src/**/*.js"
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
-
 		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-
 		"x-test": "mocha ",
 		"x-coverage": "c8 --lines 0 --functions 0 --branches 0 --check-coverage --all --exclude 'spec/**' -x 'coverage/**' -x 'test/**' npm run test"
 	},
