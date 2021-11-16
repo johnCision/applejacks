@@ -10,9 +10,11 @@ export class Button extends HTMLElement {
 		super()
 
 		const template = document.getElementById('button-template')
+		// if(template === undefined) { throw Error('template undefined') }
 		const { content } = template
 		this.attachShadow({ mode: 'open' })
-		this.shadowRoot.appendChild(content.cloneNode(true))
+		const clone = content.cloneNode(true)
+		this.shadowRoot.appendChild(clone)
 	}
 
 	static get observedAttributes() {
@@ -26,9 +28,10 @@ export class Button extends HTMLElement {
 	disconnectedCallback() {}
 	adoptedCallback() {}
 	attributeChangedCallback(name, _oldValue, newValue) {
+		//console.log('aCC', name, newValue)
 		if(name !== 'disabled') { return }
 		const has = this.hasAttributeNS('', 'disabled')
-		const buttonElem = this.shadowRoot.querySelector('button')
+		const buttonElem = this.shadowRoot.querySelector('#button')
 
 		if(has) {
 			buttonElem.setAttributeNS('', 'disabled', newValue)
