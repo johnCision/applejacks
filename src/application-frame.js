@@ -17,9 +17,13 @@ class ApplicationFrameCore extends HTMLElement {
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
 
-	static get observedAttributes() { return Object.keys(ATTRS).map(k => ATTRS[k]) }
+	static get observedAttributes() {
+		return Object.keys(ATTRS).map(k => ATTRS[k])
+	}
 
-	attributeChangedCallback(_name, _oldValue, _newValue) { }
+	attributeChangedCallback(_name, _oldValue, _newValue) {
+		// noop
+	}
 }
 
 //
