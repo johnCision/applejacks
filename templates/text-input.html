@@ -1,0 +1,9 @@
+<template id="input-text-template">
+	<label><slot name="label"></slot></label>
+	<slot name="icon"></slot>
+	<input id="input" name="input" type="text" part="input" required></input>
+	<span part="required"><slot name="required"></slot></span>
+	<ul part="suggestions">
+		<slot name="suggestions"></slot>
+	</ul>
+</template>

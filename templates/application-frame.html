@@ -1,0 +1,13 @@
+<template id="application-frame-template">
+	<header part="header">
+		<slot name="header"></slot>
+	</header>
+	<main part="main">
+		<h2 style="display:none;">Main Content</h2>
+		<slot name="main"></slot>
+	</main>
+	<aside part="aside">
+		<slot name="aside"></slot>
+	</aside>
+	<slot name="chat"></slot>
+</template>
