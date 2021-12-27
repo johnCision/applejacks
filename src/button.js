@@ -1,17 +1,18 @@
-function onClick(event) {
-	console.log('inner, button event', event.target)
-	// const disabled = event.target.getAttributeNS('', 'disabled')
-	// console.log({ disabled })
-}
+/* eslint-disable import/group-exports */
+/* eslint-disable max-classes-per-file */
 
 //
 export class Button extends HTMLElement {
 	constructor() {
 		super()
 
-		const template = document.getElementById('button-template')
-		// if(template === undefined) { throw Error('template undefined') }
-		const { content } = template
+		const templateElement = Button.template
+
+		if(templateElement === undefined || templateElement === null) {
+			throw new Error('template undefined')
+		}
+
+		const { content } = templateElement
 		this.attachShadow({ mode: 'open' })
 		const clone = content.cloneNode(true)
 		this.shadowRoot.appendChild(clone)
@@ -21,12 +22,24 @@ export class Button extends HTMLElement {
 		return [ 'kind', 'icon', 'size', 'disabled' ]
 	}
 
+	static onClick(event) {
+		console.log('inner, button event', event.target)
+		// const disabled = event.target.getAttributeNS('', 'disabled')
+		// console.log({ disabled })
+	}
+
+
 	connectedCallback() {
 		const buttonElem = this.shadowRoot.querySelector('#button')
-		buttonElem.addEventListener('click', onClick)
+		buttonElem.addEventListener('click', Button.onClick)
 	}
-	disconnectedCallback() {}
-	adoptedCallback() {}
+
+	disconnectedCallback() {
+		// removeEventListener('click')
+	}
+
+	adoptedCallback() { }
+
 	attributeChangedCallback(name, _oldValue, newValue) {
 		//console.log('aCC', name, newValue)
 		if(name !== 'disabled') { return }
