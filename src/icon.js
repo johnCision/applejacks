@@ -1,10 +1,11 @@
 //
 export class Icon extends HTMLElement {
+	static template
+
 	constructor() {
 		super()
 
-		const template = document.getElementById('icon-template')
-		const { content } = template
+		const { content } = Icon.template
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}

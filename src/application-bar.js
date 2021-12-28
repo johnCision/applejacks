@@ -1,9 +1,10 @@
 export class ApplicationBar extends HTMLElement {
+	static template
+
 	constructor() {
 		super()
 
-		const template = document.getElementById('application-bar-template')
-		const { content } = template
+		const { content } = ApplicationBar.template
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}

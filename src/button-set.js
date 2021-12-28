@@ -1,9 +1,10 @@
 export class ButtonSet extends HTMLElement {
+	static template
+
 	constructor() {
 		super()
 
-		const template = document.getElementById('button-set-template')
-		const { content } = template
+		const { content } = ButtonSet.template
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}

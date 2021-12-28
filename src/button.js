@@ -1,8 +1,7 @@
-/* eslint-disable import/group-exports */
-/* eslint-disable max-classes-per-file */
-
 //
 export class Button extends HTMLElement {
+	static template
+
 	constructor() {
 		super()
 

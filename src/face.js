@@ -6,11 +6,12 @@ const ATTR = {
 
 //
 export class Face extends HTMLElement {
+	static template
+
 	constructor() {
 		super()
 
-		const template = document.getElementById('face-template')
-		const { content } = template
+		const { content } = Face.template
 		const shadowRoot = this.attachShadow({ mode: 'open' })
 		shadowRoot.appendChild(content.cloneNode(true))
 	}
