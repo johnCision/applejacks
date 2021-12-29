@@ -1,6 +1,6 @@
 {
 	"name": "@johncision/applejacks",
-	"version": "5.0.0",
+	"version": "5.0.1",
 	"description": "UI Framework",
 	"type": "module",
 	"main": "./src/index.js",
@@ -8,7 +8,8 @@
 		".": "./src/index.js"
 	},
 	"files": [
-		"src/**/*.js"
+		"src/**/*.js",
+		"templates/**/*.html"
 	],
 	"scripts": {
 		"lint": "eslint --quiet .",
