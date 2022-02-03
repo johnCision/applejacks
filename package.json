@@ -1,6 +1,6 @@
 {
 	"name": "@johncision/applejacks",
-	"version": "5.0.1",
+	"version": "5.0.2",
 	"description": "UI Framework",
 	"type": "module",
 	"main": "./src/index.js",
