@@ -87,7 +87,7 @@
 	},
 	"homepage": "https://github.com/johnCision/applejacks#readme",
 	"devDependencies": {
-		"@jest/globals": "^27.3.1",
+		"@jest/globals": "^29.4.2",
 		"@johncision/eslint-config": "^3.0.9",
 		"c8": "^7.10.0",
 		"chai": "^4.3.4",
